@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - FoxStudy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+    <div id="app-view">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="imagens/imagem4.png" alt="Logo FoxStudy" class="sidebar-logo">
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" id="nav-materias" class="nav-link active">
+                    <i data-feather="book-open"></i>
+                    <span>Minhas Matérias</span>
+                </a>
+                <a href="#" id="nav-pomodoro" class="nav-link">
+                    <i data-feather="clock"></i>
+                    <span>Pomodoro</span>
+                </a>
+                <a href="#" id="nav-config" class="nav-link">
+                    <i data-feather="settings"></i>
+                    <span>Configurações</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            
+            <section id="materias-screen" class="app-screen">
+                <div class="content-header">
+                    <h1>Minhas Matérias</h1>
+                    <button id="show-create-materia-btn" class="btn btn-create">+ Criar Matéria</button>
+                </div>
+                <div class="subjects-grid"></div>
+            </section>
+
+            <section id="create-materia-screen" class="app-screen hidden">
+                 <div class="content-header">
+                    <h1>Criar Nova Matéria</h1>
+                </div>
+                <div class="create-materia-form">
+                    <input type="text" id="input-nome-materia" placeholder="Nome Matéria">
+                    <select id="select-tipo-materia">
+                        <option disabled selected>Tipo</option>
+                        <option>Exatas</option>
+                        <option>Humanas</option>
+                        <option>Biológicas</option>
+                        <option>Linguagens</option>
+                    </select>
+                    <div class="form-buttons">
+                        <button id="cancel-create-materia-btn" class="btn btn-cancel">Cancelar</button>
+                        <button id="save-materia-btn" class="btn btn-save">Salvar</button>
+                    </div>
+                    <img src="imagens/imagem2.png" alt="Mascote com livro" class="mascot-form-small">
+                </div>
+            </section>
+
+            <section id="flashcards-screen" class="app-screen hidden">
+                <div class="content-header">
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <button id="back-to-materias-btn" class="btn-icon" title="Voltar">
+                            <i data-feather="arrow-left"></i>
+                        </button>
+                        <h1 id="flashcard-title">Flashcards</h1>
+                    </div>
+                    <button id="toggle-create-card-btn" class="btn btn-create">+ Novo Card</button>
+                </div>
+
+                <div id="create-card-area" class="create-card-box hidden">
+                    <input type="text" id="input-pergunta" placeholder="Pergunta (Frente)">
+                    <input type="text" id="input-resposta" placeholder="Resposta (Verso)">
+                    <button id="save-card-btn" class="btn btn-save-small">Adicionar</button>
+                </div>
+
+                <div class="cards-grid" id="flashcards-container"></div>
+            </section>
+
+            <section id="pomodoro-screen" class="app-screen hidden">
+                <div class="content-header">
+                    <h1>Foco Total</h1>
+                </div>
+                
+                <div class="pomodoro-container">
+                    <div class="timer-card">
+                        <div class="timer-modes">
+                            <button class="mode-btn active" data-time="25">Foco (25m)</button>
+                            <button class="mode-btn" data-time="5">Pausa Curta (5m)</button>
+                            <button class="mode-btn" data-time="15">Pausa Longa (15m)</button>
+                        </div>
+
+                        <div class="timer-display" id="timer-display">25:00</div>
+
+                        <div class="timer-controls">
+                            <button id="start-timer-btn" class="btn btn-create btn-lg">Iniciar</button>
+                            <button id="pause-timer-btn" class="btn btn-cancel btn-lg hidden">Pausar</button>
+                            <button id="reset-timer-btn" class="btn btn-outline">Reiniciar</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="config-screen" class="app-screen hidden">
+                <div class="content-header">
+                    <h1>Configurações</h1>
+                </div>
+                
+                <div class="settings-layout">
+                    <div class="settings-panel color-blue">
+                        <h3>Opções de Perfil</h3>
+                        <div class="form-group">
+                            <label for="config-nome">Nome:</label>
+                            <input type="text" id="config-nome" placeholder="Seu nome">
+                        </div>
+                        <div class="form-group">
+                            <label for="config-email">E-mail:</label>
+                            <input type="email" id="config-email" placeholder="seu@email.com">
+                        </div>
+                        <button id="config-save-perfil" class="btn btn-save-config">Salvar Perfil</button>
+                    </div>
+
+                    <div id="config-aparencia-panel" class="settings-panel color-dark-blue tall-panel">
+                        <h3>Opções de Aparência</h3>
+                        <p>Escolha seu tema preferido:</p>
+                        <div class="theme-buttons">
+                            <button class="theme-btn" data-theme="light">Claro</button>
+                            <button class="theme-btn" data-theme="dark">Escuro</button>
+                            <button class="theme-btn" data-theme="blue">Azul (FoxStudy)</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        feather.replace()
+    </script>
+</body>
+</html>
