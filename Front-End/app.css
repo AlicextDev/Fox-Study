@@ -1,0 +1,251 @@
+:root {
+    --blue: #518CAC;
+    --light-gray: #CCCCCC;
+    --green: #799554;
+    --light-green: #B7CB98;
+    --orange: #ED6830;
+    --off-white: #E5EBE3;
+    --white: #FFFFFF;
+    --text-dark: #333;
+    --input-bg: #f0f1f3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--off-white);
+    color: var(--text-dark);
+}
+
+.hidden {
+    display: none !important;
+}
+
+#app-view {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: var(--white);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid #f0f0f0;
+}
+
+.sidebar-header {
+    margin-bottom: 40px;
+}
+
+.sidebar-logo {
+    width: 100%;
+    max-width: 180px;
+}
+
+.sidebar-nav .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sidebar-nav .nav-link:hover {
+    background-color: #f0f1f3;
+}
+
+.sidebar-nav .nav-link.active {
+    background-color: var(--light-green);
+    color: var(--text-dark);
+}
+
+.nav-link svg {
+    margin-right: 15px;
+    width: 20px;
+}
+
+.main-content {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+.app-screen {
+    width: 100%;
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.content-header h1 {
+    font-size: 2.5rem;
+}
+
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-create {
+    background-color: var(--orange);
+    color: var(--white);
+}
+
+/* Estilos da Tela "Minhas Matérias" */
+.subjects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.subject-card {
+    padding: 20px;
+    border-radius: 20px;
+    color: var(--white);
+}
+
+.subject-card .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.subject-card .card-body {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.subject-card .card-footer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+.progress {
+    height: 100%;
+    background-color: var(--white);
+    border-radius: 4px;
+}
+
+/* Cores dos Cards */
+.color-blue { background-color: var(--blue); }
+.color-green { background-color: var(--green); }
+.color-dark-blue { background-color: #3a6a8a; }
+.color-dark-green { background-color: #5a733f; }
+.color-light-green { background-color: var(--light-green); color: var(--text-dark);}
+.color-light-green .progress-bar { background-color: rgba(0,0,0,0.1); }
+.color-light-green .progress { background-color: var(--green); }
+
+
+/* Estilos da Tela "Criar Nova Matéria" */
+.create-materia-form {
+    background-color: white;
+    padding: 40px;
+    border-radius: 15px;
+    max-width: 600px; /* Aumentado um pouco o max-width */
+    margin: 20px auto;
+    text-align: center;
+    position: relative;
+    /* Adicionado padding-bottom para dar espaço para a raposa */
+    padding-bottom: 100px; /* Ajuste este valor se precisar de mais/menos espaço */
+}
+
+.create-materia-form input,
+.create-materia-form select {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background-color: var(--input-bg);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px; /* Adicionado um pouco de margem superior */
+}
+
+.btn-cancel {
+    background-color: #e0e0e0;
+    color: var(--text-dark);
+}
+.btn-save {
+    background-color: var(--orange);
+    color: var(--white);
+}
+
+.mascot-form-small {
+    position: absolute;
+    bottom: 20px; /* Ajustado para ficar dentro do padding-bottom */
+    left: 20px;
+    width: 120px;
+    height: auto; /* Garante que a proporção da imagem seja mantida */
+}
+
+
+/* Estilos da Tela "Configurações" */
+.settings-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.settings-panel {
+    padding: 30px;
+    border-radius: 20px;
+    color: var(--white);
+}
+
+.settings-panel h3 {
+    margin-bottom: 15px;
+}
+.settings-panel p {
+    margin-bottom: 5px;
+    opacity: 0.9;
+}
+
+.settings-panel.tall-panel {
+    grid-row: span 2;
+}
+
+.settings-panel.wide-panel {
+    grid-column: span 2;
+}
